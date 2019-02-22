@@ -1,10 +1,10 @@
 /*
- * Name: Oluwatofarati Johnson
+ * Name: Oluwatofarati (Bo) Johnson
  * ASU ID: 1211012995
  * Class ID: 425
- * Assignmnet2
+ * Assignmnet 2
  * We are using version control to incrementally update the contents of Calculator.java. After each change we push
- * a commit to github.
+ * a commit to Github.
  */
 
 package cse360assign2;
@@ -12,12 +12,15 @@ package cse360assign2;
 public class Calculator {
 
 	private int total;
+	private String history;
 	
 	/**
-	 * The default constructor for the Calculator class that sets the total member variable to 0 
+	 * The default constructor for the Calculator class that sets the total member variable to 0
+	 * and initialize the history String to hold "0"
 	 */
 	public Calculator () {
 		total = 0;  // not needed - included for clarity
+		history = "0"; // 0 will always be the initial value of the calculator
 	}
 	
 	/**
@@ -30,36 +33,39 @@ public class Calculator {
 	}
 	
 	/**
-	 * Adds a specified value to the current total
+	 * Adds a specified value to the current total and records its operation to the history String
 	 * 
 	 * @param value the integer value that will be added to the current total
 	 */
 	public void add (int value) {
 		total += value;
+		history += " + " + value;
 	}
 	
 	/**
-	 * Subtracts a specified value to the current total
+	 * Subtracts a specified value to the current total and records its operation to the history String
 	 * 
 	 * @param value the integer value that will be subtracted from the current total
 	 */
 	public void subtract (int value) {
 		total -= value;
+		history += " - " + value;
 	}
 	
 	/**
-	 * Multiplies the current total by a specified value
+	 * Multiplies the current total by a specified value and records its operation to the history String
 	 * 
 	 * @param value the integer value that the total will be multiplied by
 	 */
 	public void multiply (int value) {
-		
+		total *= value;
+		history += " * " + value;
 	}
 	
 	/**
-	 * Divides the current total by a specified value
+	 * Divides the current total by a specified value and records its operation to the history String
 	 * 
-	 * @param value the integer value that the total will be divied by
+	 * @param value the integer value that the total will be divided by
 	 */
 	public void divide (int value) {
 		if(value == 0) {
@@ -68,6 +74,8 @@ public class Calculator {
 		else {
 			total /= value;
 		}
+		
+		history += " / " + value;
 	}
 	
 	/**
@@ -76,6 +84,6 @@ public class Calculator {
 	 * @return a string that holds all the previous operations and their arguments
 	 */
 	public String getHistory () {
-		return "";
+		return history;
 	}
 }
